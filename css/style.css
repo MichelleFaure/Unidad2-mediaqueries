@@ -21,8 +21,12 @@ ul{
 
 /* -----GRID TEMPLATE AREAS----------------------------------------------*/
 
-nav{
-    grid-area: nav;
+.navbar-mobile{
+    grid-area: navmobile;
+    background-color: var(--primary-color);
+}
+.navbar-desktop{
+    grid-area: navdesktop;
     background-color: var(--primary-color);
 }
 
@@ -40,11 +44,12 @@ footer{
 }
 
 .grid-container{
+    display: grid;
     grid-template-areas:
-    "nav"
-    "section"
-    "main"
-    "footer";
+    "navmobile navmobile"
+    "section section"
+    "main main"
+    "footer footer";
 }
 
 main{
@@ -72,7 +77,7 @@ main{
     padding: 0.5rem;
 }
 
-.navbar-iconos i{
+.navbar-mobile .navbar-iconos i{
     padding-left: 0.5rem;
     font-size: 1.2rem;
 }
@@ -80,23 +85,35 @@ main{
 /* -----NAVBAR-DESKTOP----------------------------------------------*/
 
 .navbar-desktop{
-    padding: 2rem;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    padding: 2rem;
     align-items: center;
     color: var(--secondary-color);
     font-family: var(--inconsolata);
 }
 
 .navbar-desktop ul{
-    display: flex;
-    justify-content: space-between;
     font-size: 1.5rem;
     }
 
 .navbar-desktop li{
     margin: 0 0.5rem;
+    padding: 1rem;
 }
+
+.navbar-desktop .navbar-iconos {
+    text-align: center;
+}
+.navbar-desktop .navbar-iconos p{
+    margin: 3rem 0;
+}
+
+.navbar-desktop .navbar-iconos i{
+    font-size: 1.5rem;
+}
+
+
 
 
 /* -----SECTION----------------------------------------------*/
@@ -107,6 +124,7 @@ section{
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    background-color: rgba(0, 100, 0, 0.11);
 }
 
 .search{
@@ -255,9 +273,15 @@ footer li{
         display: none;
     }
 
-    .navbar-desktop{
-        display: flex;
+    .grid-container{
+        display: grid;
+        grid-template-areas:
+        "navdesktop section"
+        "navdesktop section"
+        "navdesktop main"
+        "footer footer";
     }
+
 
     section{
         display: flex;
